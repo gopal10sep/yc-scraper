@@ -2,17 +2,17 @@ import json
 import re
 from time import sleep
 
-from selenium.webdriver import Firefox
+from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
 from tqdm import tqdm
 
 
 def make_driver():
     """Creates headless Firefox WebDriver instance."""
-    firefox_options = Options()
-    firefox_options.add_argument('-headless')
-    return Firefox(options=firefox_options)
+    options = Options()
+    options.add_argument("--headless")
+    return webdriver.Chrome(options=options)
 
 
 driver = make_driver()
